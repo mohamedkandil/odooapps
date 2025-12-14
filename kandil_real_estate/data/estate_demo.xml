@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="demo_partner_1" model="res.partner">
+    <field name="name">Demo Customer 1</field>
+  </record>
+  <record id="demo_partner_2" model="res.partner">
+    <field name="name">Demo Customer 2</field>
+  </record>
+
+  <record id="demo_building_1" model="estate.building">
+    <field name="name">Sunrise Towers</field>
+    <field name="address">Cairo - Demo Street</field>
+  </record>
+
+  <record id="demo_unit_101" model="estate.unit">
+    <field name="name">Unit 101</field>
+    <field name="building_id" ref="demo_building_1"/>
+    <field name="unit_type">apartment</field>
+    <field name="area_sqm">120.0</field>
+    <field name="bedrooms">3</field>
+    <field name="price">3500000</field>
+  </record>
+
+  <record id="demo_unit_102" model="estate.unit">
+    <field name="name">Unit 102</field>
+    <field name="building_id" ref="demo_building_1"/>
+    <field name="unit_type">apartment</field>
+    <field name="area_sqm">95.0</field>
+    <field name="bedrooms">2</field>
+    <field name="price">2800000</field>
+  </record>
+</odoo>

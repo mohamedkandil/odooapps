@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data noupdate="1">
+
+    <!-- Root Menu -->
+    <record id="menu_estate_root" model="ir.ui.menu">
+        <field name="name">Real Estate</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <!-- Master Data -->
+    <record id="menu_estate_master" model="ir.ui.menu">
+        <field name="name">Master Data</field>
+        <field name="parent_id" ref="menu_estate_root"/>
+    </record>
+
+    <!-- Menus with actions -->
+    <record id="menu_estate_building" model="ir.ui.menu">
+        <field name="name">Buildings</field>
+        <field name="parent_id" ref="menu_estate_master"/>
+        <field name="action" ref="action_estate_building"/>
+    </record>
+
+    <record id="menu_estate_units" model="ir.ui.menu">
+        <field name="name">Units</field>
+        <field name="parent_id" ref="menu_estate_master"/>
+        <field name="action" ref="action_estate_unit"/>
+    </record>
+
+    <!-- Transactions -->
+    <record id="menu_estate_transactions" model="ir.ui.menu">
+        <field name="name">Transactions</field>
+        <field name="parent_id" ref="menu_estate_root"/>
+    </record>
+
+    <record id="menu_estate_reservations" model="ir.ui.menu">
+        <field name="name">Reservations</field>
+        <field name="parent_id" ref="menu_estate_transactions"/>
+        <field name="action" ref="action_estate_reservation"/>
+    </record>
+
+    <record id="menu_estate_contract" model="ir.ui.menu">
+        <field name="name">Contracts</field>
+        <field name="parent_id" ref="menu_estate_transactions"/>
+        <field name="action" ref="action_estate_contract"/>
+    </record>
+
+  </data>
+</odoo>

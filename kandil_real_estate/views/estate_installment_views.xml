@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="view_installment_tree" model="ir.ui.view">
+    <field name="name"><estate class="installment list"></estate></field>
+    <field name="model">estate.installment</field>
+    <field name="arch" type="xml">
+      <list string="Installments">
+        <field name="contract_id"/>
+        <field name="amount"/>
+        <field name="due_date"/>
+        <field name="paid"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_installment_form" model="ir.ui.view">
+    <field name="name">estate.installment.form</field>
+    <field name="model">estate.installment</field>
+    <field name="arch" type="xml">
+      <form string="Installment">
+        <sheet>
+          <group>
+            <field name="contract_id"/>
+            <field name="amount"/>
+            <field name="due_date"/>
+            <field name="paid"/>
+            <field name="payment_id"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_estate_installment" model="ir.actions.act_window">
+    <field name="name">Installments</field>
+    <field name="res_model">estate.installment</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+</odoo>

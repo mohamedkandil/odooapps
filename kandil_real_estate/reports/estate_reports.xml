@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <report id="action_report_contract" model="estate.contract" string="Contract" report_type="qweb-pdf" name="estate.contract_report" file="estate.contract_report"/>
+</odoo>

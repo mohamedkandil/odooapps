@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- فئة Real Estate -->
+    <record id="module_category_real_estate" model="ir.module.category">
+        <field name="name">Real Estate</field>
+        <field name="description">Real Estate Management</field>
+        <field name="sequence">100</field>
+    </record>
+    
+    <!-- مجموعة مستخدم العقارات -->
+    <record id="group_estate_user" model="res.groups">
+        <field name="name">Real Estate User</field>
+        <field name="category_id" ref="module_category_real_estate"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+    </record>
+    
+    <!-- مجموعة مدير العقارات -->
+    <record id="group_estate_manager" model="res.groups">
+        <field name="name">Real Estate Manager</field>
+        <field name="category_id" ref="module_category_real_estate"/>
+        <field name="implied_ids" eval="[(4, ref('group_estate_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>

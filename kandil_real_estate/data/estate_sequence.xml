@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="seq_estate_reservation" model="ir.sequence">
+    <field name="name">Reservation</field>
+    <field name="code">estate.reservation</field>
+    <field name="prefix">RES</field>
+    <field name="padding">4</field>
+  </record>
+  <record id="seq_estate_contract" model="ir.sequence">
+    <field name="name">Contract</field>
+    <field name="code">estate.contract</field>
+    <field name="prefix">CNT</field>
+    <field name="padding">4</field>
+  </record>
+</odoo>
