@@ -6,6 +6,7 @@
     'author': 'MOHAMED ABDALLAH OMER',
     'website': 'https://kandiltech.com',
     'category': 'Real Estate',
+     'images': ['static/description/banner.png'],
     'depends': ['base', 'mail', 'contacts', 'account'],
 'data': [
     # 1. الأمان
