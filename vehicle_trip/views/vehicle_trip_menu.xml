@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<menuitem id="menu_vehicle_trip_root" name="Vehicle Trips" sequence="10"/>
+<menuitem id="menu_vehicle_trip_config" name="Vehicle Types" parent="menu_vehicle_trip_root" action="action_vehicle_trip_config"/>
+<menuitem id="menu_vehicle_trip" name="Trips" parent="menu_vehicle_trip_root" action="action_vehicle_trip"/>
+</odoo>

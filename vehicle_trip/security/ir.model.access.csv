@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vehicle_trip_user,vehicle.trip user,model_vehicle_trip,group_vehicle_trip_user,1,0,0,0
+access_vehicle_trip_manager,vehicle.trip manager,model_vehicle_trip,group_vehicle_trip_manager,1,1,1,1
+access_vehicle_trip_config,vehicle.trip.config,model_vehicle_trip_config,group_vehicle_trip_manager,1,1,1,1
+access_vehicle_trip_config,vehicle.trip.config,model_vehicle_trip_config,,1,1,1,1
