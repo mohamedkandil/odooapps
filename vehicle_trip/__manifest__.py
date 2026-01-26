@@ -21,4 +21,5 @@
 'assets': {},
 'images': ['static/description/icon.png'],
 'installable': True,
+'price': 100,
 },
