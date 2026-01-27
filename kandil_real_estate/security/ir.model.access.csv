@@ -1,6 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_estate_building,access.estate.building,model_estate_building,,1,1,1,1
-access_estate_unit,access.estate.unit,model_estate_unit,,1,1,1,1
-access_estate_reservation,access.estate.reservation,model_estate_reservation,,1,1,1,1
-access_estate_contract,access.estate.contract,model_estate_contract,,1,1,1,1
-access_estate_installment,access.estate.installment,model_estate_installment,,1,1,1,1
