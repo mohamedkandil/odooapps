@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<report
+id="vehicle_trip_report"
+model="vehicle.trip"
+string="Vehicle Trip PDF"
+report_type="qweb-pdf"
+name="vehical_trip.report_vehicle_trip_document"
+file="vehical_trip.report_vehicle_trip_document"/>
+</odoo>

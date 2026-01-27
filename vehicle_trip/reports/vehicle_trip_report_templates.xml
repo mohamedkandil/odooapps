@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<template id="report_vehicle_trip_document">
+<t t-call="web.external_layout">
+<div class="page">
+<h2>Vehicle Trip Report</h2>
+<table class="table table-sm">
+<thead>
+<tr>
+<th>Vehicle</th>
+<th>Driver</th>
+<th>Employee</th>
+<th>Project</th>
+<th>KM</th>
+<th>Hours</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr t-foreach="docs" t-as="o">
+<td><span t-field="o.vehicle_id.name"/></td>
+<td><span t-field="o.driver_id.name"/></td>
+<td><span t-field="o.employee_id.name"/></td>
+<td><span t-field="o.project_id.name"/></td>
+<td><span t-field="o.trip_km"/></td>
+<td><span t-field="o.trip_hours"/></td>
+<td><span t-field="o.trip_cost"/></td>
+</tr>
+</tbody>
+</table>
+</div>
+</t>
+</template>
+</odoo>

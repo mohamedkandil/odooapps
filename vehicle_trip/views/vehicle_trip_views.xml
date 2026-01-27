@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<record id="view_vehicle_trip_form" model="ir.ui.view">
+<field name="name">vehicle.trip.form</field>
+<field name="model">vehicle.trip</field>
+<field name="arch" type="xml">
+<form string="Vehicle Trip">
+<sheet>
+<group>
+<field name="vehicle_id"/>
+<field name="driver_id"/>
+<field name="employee_id"/>
+<field name="project_id"/>
+<field name="config_id"/>
+</group>
+<group>
+<field name="start_odometer"/>
+<field name="end_odometer"/>
+<field name="trip_km" readonly="1"/>
+</group>
+<group>
+<field name="start_time"/>
+<field name="end_time"/>
+<field name="trip_hours" readonly="1"/>
+</group>
+<group>
+<field name="trip_cost" readonly="1"/>
+<field name="account_move_id" readonly="1"/>
+</group>
+<footer>
+<button string="Create Expense" type="object" name="action_create_expense" class="btn-primary"/>
+</footer>
+</sheet>
+</form>
+</field>
+</record>
+
+
+<!-- Mobile-Friendly Tree View -->
+<record id="view_vehicle_trip_tree" model="ir.ui.view">
+<field name="name">vehicle.trip.tree</field>
+<field name="model">vehicle.trip</field>
+<field name="arch" type="xml">
+<tree>
+<field name="vehicle_id"/>
+<field name="driver_id"/>
+<field name="employee_id"/>
+<field name="trip_km"/>
+<field name="trip_hours"/>
+<field name="trip_cost"/>
+</tree>
+</field>
+</record>
+</odoo>
