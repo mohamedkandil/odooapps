@@ -5,6 +5,7 @@
 'summary': 'Vehicle Trips, Costing, Accounting & Reports',
 'author': 'Kandil',
 'application': True,
+'price': 100,
 'license': 'LGPL-3',
 'depends': ['fleet', 'hr', 'project', 'account'],
 'data': [
