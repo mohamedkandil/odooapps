@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>MK Attendance Policy</title>
+    <style>
+        body {
+            margin: 0;
+            background: #f7f9fb;
+            color: #243447;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            line-height: 1.65;
+        }
+        .mk-page {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 32px 18px 48px;
+        }
+        .mk-hero {
+            background: #ffffff;
+            border: 1px solid #e5eaf0;
+            border-radius: 8px;
+            padding: 42px;
+        }
+        .mk-label {
+            display: inline-block;
+            margin-bottom: 14px;
+            padding: 5px 12px;
+            border-radius: 999px;
+            background: #eaf5f2;
+            color: #12725f;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+        }
+        h1, h2, h3 {
+            margin: 0;
+            color: #172331;
+            line-height: 1.25;
+        }
+        h1 {
+            max-width: 760px;
+            font-size: 42px;
+            font-weight: 800;
+        }
+        h2 {
+            margin-bottom: 18px;
+            font-size: 28px;
+        }
+        h3 {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+        p {
+            margin: 12px 0 0;
+            color: #526173;
+            font-size: 16px;
+        }
+        .mk-lead {
+            max-width: 790px;
+            margin-top: 18px;
+            font-size: 18px;
+        }
+        .mk-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+        .mk-pill {
+            padding: 10px 14px;
+            border: 1px solid #d9e2ea;
+            border-radius: 8px;
+            background: #fbfcfe;
+            color: #334155;
+            font-size: 14px;
+            font-weight: 650;
+        }
+        .mk-section {
+            margin-top: 24px;
+            padding: 34px;
+            border: 1px solid #e5eaf0;
+            border-radius: 8px;
+            background: #ffffff;
+        }
+        .mk-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+        .mk-card {
+            min-height: 150px;
+            padding: 22px;
+            border: 1px solid #e8edf2;
+            border-radius: 8px;
+            background: #ffffff;
+        }
+        .mk-icon {
+            display: inline-flex;
+            width: 42px;
+            height: 42px;
+            margin-bottom: 14px;
+            border-radius: 8px;
+            background: #126b86;
+            color: #ffffff;
+            align-items: center;
+            justify-content: center;
+        }
+        .mk-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: currentColor;
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+        .mk-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px 22px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .mk-list li {
+            position: relative;
+            padding-left: 24px;
+            color: #465466;
+            font-size: 15px;
+        }
+        .mk-list li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #19a974;
+        }
+        .mk-flow {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            counter-reset: steps;
+        }
+        .mk-step {
+            padding: 20px;
+            border: 1px solid #e8edf2;
+            border-radius: 8px;
+            background: #fbfcfe;
+        }
+        .mk-step:before {
+            counter-increment: steps;
+            content: counter(steps);
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            margin-bottom: 12px;
+            border-radius: 50%;
+            background: #172331;
+            color: #ffffff;
+            text-align: center;
+            font-weight: 800;
+            line-height: 28px;
+        }
+        .mk-feature-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+        .mk-feature-title svg {
+            width: 28px;
+            height: 28px;
+            color: #126b86;
+            stroke: currentColor;
+            stroke-width: 2.1;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+        .mk-note {
+            border-left: 4px solid #126b86;
+            background: #f0f8fa;
+        }
+        .mk-footer {
+            margin-top: 24px;
+            padding: 24px 34px;
+            border-radius: 8px;
+            background: #172331;
+            color: #ffffff;
+        }
+        .mk-footer p {
+            color: #d7dee8;
+        }
+        @media (max-width: 900px) {
+            h1 {
+                font-size: 34px;
+            }
+            .mk-hero,
+            .mk-section {
+                padding: 26px;
+            }
+            .mk-grid,
+            .mk-flow,
+            .mk-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="mk-page">
+        <section class="mk-hero">
+            <span class="mk-label">Odoo 17 Attendance &amp; Payroll</span>
+            <h1>MK Attendance Policy</h1>
+            <p class="mk-lead">
+                A practical attendance policy engine for Odoo that generates employee attendance sheets,
+                calculates late deductions, overtime, absence penalties, public holiday rules, and payroll inputs
+                from one configurable workflow.
+            </p>
+            <div class="mk-actions">
+                <span class="mk-pill">Late rules</span>
+                <span class="mk-pill">Overtime tiers</span>
+                <span class="mk-pill">Absence rules</span>
+                <span class="mk-pill">Public holiday handling</span>
+                <span class="mk-pill">Payroll inputs</span>
+            </div>
+        </section>
+
+        <section class="mk-section">
+            <div class="mk-feature-title">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 16.9 6.6 19.8l1-6.1-4.4-4.3 6.1-.9L12 3z"/>
+                </svg>
+                <h2>Key Features</h2>
+            </div>
+            <div class="mk-grid">
+                <article class="mk-card">
+                    <div class="mk-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="12" r="8"/>
+                            <path d="M12 8v5l3 2"/>
+                        </svg>
+                    </div>
+                    <h3>Late Deduction Rules</h3>
+                    <p>
+                        Configure grace minutes, late start hour, and multiple late deduction methods including
+                        wage multipliers, day fractions, fixed amounts, and fixed amounts per hour.
+                    </p>
+                </article>
+                <article class="mk-card">
+                    <div class="mk-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M13 2L5 14h6l-1 8 8-12h-6l1-8z"/>
+                        </svg>
+                    </div>
+                    <h3>Overtime Tier Rules</h3>
+                    <p>
+                        Apply overtime rules by tiered overtime hours after working time, with different rates for
+                        normal days and public holidays.
+                    </p>
+                </article>
+                <article class="mk-card">
+                    <div class="mk-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M8 3v3"/>
+                            <path d="M16 3v3"/>
+                            <rect x="4" y="5" width="16" height="16" rx="2"/>
+                            <path d="M4 10h16"/>
+                            <path d="M9 15l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3>Absence Rules</h3>
+                    <p>
+                        Define absence penalties for normal days, days before public holidays, and days after public
+                        holidays using day wage percentages or fixed amounts.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="mk-section">
+            <div class="mk-feature-title">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M9 11l3 3L22 4"/>
+                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                </svg>
+                <h2>What The Module Handles</h2>
+            </div>
+            <ul class="mk-list">
+                <li>Generate daily attendance sheet lines for selected employees and periods.</li>
+                <li>Calculate worked hours from Odoo attendance check-in and check-out records.</li>
+                <li>Calculate late minutes based on employee schedule or a fixed policy start hour.</li>
+                <li>Calculate overtime from the end of working hours until the next working day start.</li>
+                <li>Detect public holidays from resource calendar leaves.</li>
+                <li>Exclude public holidays from absence by default.</li>
+                <li>Apply absence rules before and after public holidays.</li>
+                <li>Create payroll inputs for attendance deductions and overtime amounts.</li>
+                <li>Generate attendance sheets in batch by company, department, and date range.</li>
+                <li>Track attendance sheet workflow: Draft, Confirmed, Approved, and Paid.</li>
+            </ul>
+        </section>
+
+        <section class="mk-section">
+            <div class="mk-feature-title">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 6h6"/>
+                    <path d="M14 6h6"/>
+                    <path d="M4 12h10"/>
+                    <path d="M18 12h2"/>
+                    <path d="M4 18h4"/>
+                    <path d="M12 18h8"/>
+                    <circle cx="12" cy="6" r="2"/>
+                    <circle cx="16" cy="12" r="2"/>
+                    <circle cx="10" cy="18" r="2"/>
+                </svg>
+                <h2>Attendance Workflow</h2>
+            </div>
+            <div class="mk-flow">
+                <article class="mk-step">
+                    <h3>Configure Policy</h3>
+                    <p>Set wage days, wage hours, late rules, overtime tiers, absence rules, and payroll input codes.</p>
+                </article>
+                <article class="mk-step">
+                    <h3>Generate Sheets</h3>
+                    <p>Create attendance sheets manually per employee or generate them in batch for a full department.</p>
+                </article>
+                <article class="mk-step">
+                    <h3>Review Amounts</h3>
+                    <p>Check late deductions, absence deductions, overtime amounts, and rule names on every line.</p>
+                </article>
+                <article class="mk-step">
+                    <h3>Create Payslip</h3>
+                    <p>Push attendance results into payroll inputs and open the created payslip from the sheet.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="mk-section mk-note">
+            <div class="mk-feature-title">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 2v6"/>
+                    <path d="M12 16v6"/>
+                    <path d="M4.9 4.9l4.2 4.2"/>
+                    <path d="M14.9 14.9l4.2 4.2"/>
+                    <path d="M2 12h6"/>
+                    <path d="M16 12h6"/>
+                    <path d="M4.9 19.1l4.2-4.2"/>
+                    <path d="M14.9 9.1l4.2-4.2"/>
+                </svg>
+                <h2>Overtime Calculation</h2>
+            </div>
+            <p>
+                Overtime tiers are counted from the end of working hours, not by fixed clock time. For example,
+                if work ends at 5:00 PM and the employee leaves at 11:00 PM, the module calculates six overtime
+                hours and applies the configured tiers such as 0-2, 2-4, and 4+ hours.
+            </p>
+        </section>
+
+        <section class="mk-section">
+            <div class="mk-feature-title">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/>
+                    <path d="M12 12l8-4.5"/>
+                    <path d="M12 12v9"/>
+                    <path d="M12 12L4 7.5"/>
+                </svg>
+                <h2>Dependencies</h2>
+            </div>
+            <ul class="mk-list">
+                <li>Employees</li>
+                <li>Attendances</li>
+                <li>Contracts</li>
+                <li>Payroll Community</li>
+                <li>Accounting</li>
+                <li>Discuss / Mail tracking</li>
+            </ul>
+        </section>
+
+        <footer class="mk-footer">
+            <div class="mk-feature-title">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 4h16v12H5.2L4 17.2V4z"/>
+                    <path d="M8 9h8"/>
+                    <path d="M8 12h5"/>
+                </svg>
+                <h2>Support</h2>
+            </div>
+            <p>
+                Developed by Mohamed Kandil. For support, customization, or implementation help,
+                contact: mohamed.kandil@myntrocode.com
+            </p>
+        </footer>
+    </main>
+</body>
+</html>
