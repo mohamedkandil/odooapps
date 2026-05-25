@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_policy,mk policy,model_mk_attendance_policy,hr.group_hr_user,1,1,1,0
+
+access_sheet_user,sheet user,model_mk_attendance_sheet,hr.group_hr_user,1,1,1,0
+access_sheet_manager,sheet manager,model_mk_attendance_sheet,hr.group_hr_manager,1,1,1,1
+
+access_line_user,line user,model_mk_attendance_sheet_line,hr.group_hr_user,1,1,1,0
+access_line_manager,line manager,model_mk_attendance_sheet_line,hr.group_hr_manager,1,1,1,1
+access_late_rule_user,late rule user,model_mk_attendance_late_rule,hr.group_hr_user,1,1,1,0
+access_late_rule_manager,late rule manager,model_mk_attendance_late_rule,hr.group_hr_manager,1,1,1,1
+access_overtime_rule_user,overtime rule user,model_mk_attendance_overtime_rule,hr.group_hr_user,1,1,1,0
+access_overtime_rule_manager,overtime rule manager,model_mk_attendance_overtime_rule,hr.group_hr_manager,1,1,1,1
+access_absence_rule_user,absence rule user,model_mk_attendance_absence_rule,hr.group_hr_user,1,1,1,0
+access_absence_rule_manager,absence rule manager,model_mk_attendance_absence_rule,hr.group_hr_manager,1,1,1,1
+access_attendance_sheet_batch_user,attendance sheet batch user,model_mk_attendance_sheet_batch,hr.group_hr_user,1,1,1,0

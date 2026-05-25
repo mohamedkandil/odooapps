@@ -1,0 +1,270 @@
+<odoo>
+    <record id="action_mk_attendance_policy" model="ir.actions.act_window">
+        <field name="name">Attendance Policies</field>
+        <field name="res_model">mk.attendance.policy</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create attendance policies to control late, absence, and overtime rates.
+            </p>
+        </field>
+    </record>
+
+    <record id="view_mk_attendance_policy_tree" model="ir.ui.view">
+        <field name="name">mk.attendance.policy.tree</field>
+        <field name="model">mk.attendance.policy</field>
+        <field name="arch" type="xml">
+            <tree string="Attendance Policies">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="late_rate"/>
+                <field name="overtime_rate"/>
+                <field name="absence_rate"/>
+                <field name="grace_in_minutes"/>
+                <field name="generate_payroll_inputs"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_mk_attendance_policy_form" model="ir.ui.view">
+        <field name="name">mk.attendance.policy.form</field>
+        <field name="model">mk.attendance.policy</field>
+        <field name="arch" type="xml">
+            <form string="Attendance Policy">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="company_id"/>
+                        <field name="active"/>
+                    </group>
+                    <group>
+                        <field name="late_rate"/>
+                        <field name="overtime_rate"/>
+                        <field name="absence_rate"/>
+                        <field name="grace_in_minutes"/>
+                        <field name="late_start_hour" widget="float_time"/>
+                        <field name="wage_days_per_month"/>
+                        <field name="wage_hours_per_day"/>
+                    </group>
+                    <group>
+                        <field name="generate_payroll_inputs"/>
+                        <field name="late_payroll_input_type"/>
+                        <field name="absence_payroll_input_type"/>
+                        <field name="overtime_payroll_input_type"/>
+                        <field name="salary_journal_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Late Rules">
+                            <field name="late_rule_ids">
+                                <tree editable="bottom">
+                                    <field name="sequence"/>
+                                    <field name="name"/>
+                                    <field name="minute_from"/>
+                                    <field name="minute_to"/>
+                                    <field name="amount_type"/>
+                                    <field name="multiplier"/>
+                                    <field name="day_fraction"/>
+                                    <field name="fixed_amount"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Overtime Rules">
+                            <field name="overtime_rule_ids">
+                                <tree editable="bottom">
+                                    <field name="sequence"/>
+                                    <field name="name"/>
+                                    <field name="day_type"/>
+                                    <field name="hour_from"/>
+                                    <field name="hour_to"/>
+                                    <field name="amount_type"/>
+                                    <field name="multiplier"/>
+                                    <field name="fixed_amount"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Absence Rules">
+                            <field name="absence_rule_ids">
+                                <tree editable="bottom">
+                                    <field name="sequence"/>
+                                    <field name="name"/>
+                                    <field name="day_type"/>
+                                    <field name="amount_type"/>
+                                    <field name="percentage"/>
+                                    <field name="fixed_amount"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mk_attendance_sheet" model="ir.actions.act_window">
+        <field name="name">Attendance Sheets</field>
+        <field name="res_model">mk.attendance.sheet</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Manage attendance sheets for employees, generate daily lines, and review totals.
+            </p>
+        </field>
+    </record>
+
+    <record id="view_mk_attendance_sheet_tree" model="ir.ui.view">
+        <field name="name">mk.attendance.sheet.tree</field>
+        <field name="model">mk.attendance.sheet</field>
+        <field name="arch" type="xml">
+            <tree string="Attendance Sheets">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="attendance_policy_id"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="state"/>
+                <field name="total_worked_hours"/>
+                <field name="total_late_hours"/>
+                <field name="total_deduction"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_mk_attendance_sheet_form" model="ir.ui.view">
+        <field name="name">mk.attendance.sheet.form</field>
+        <field name="model">mk.attendance.sheet</field>
+        <field name="arch" type="xml">
+            <form string="Attendance Sheet">
+                <header>
+                    <button name="action_generate" type="object" string="Generate Lines" class="btn-primary"/>
+                    <button name="action_recompute_amounts" type="object" string="Recompute Amounts"/>
+                    <button name="action_confirm" type="object" string="Confirm"/>
+                    <button name="action_approve" type="object" string="Approve"/>
+                    <button name="action_create_payslip" type="object" string="Create Payslip"/>
+                    <button name="action_paid" type="object" string="Paid"/>
+                    <button name="action_draft" type="object" string="Set Draft"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,approved,paid"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_create_payslip"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-money"
+                                invisible="not payslip_id">
+                            <field name="payslip_count" widget="statinfo" string="Payslip"/>
+                        </button>
+                    </div>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="employee_id"/>
+                        <field name="attendance_policy_id"/>
+                        <field name="payslip_id" readonly="1" invisible="1"/>
+                    </group>
+                    <group>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                        <field name="company_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Lines">
+                            <field name="line_ids">
+                                <tree editable="bottom">
+                                    <field name="date"/>
+                                    <field name="check_in"/>
+                                    <field name="check_out"/>
+                                    <field name="worked_hours"/>
+                                    <field name="late_minutes"/>
+                                    <field name="late_hours"/>
+                                    <field name="late_rated_hours"/>
+                                    <field name="late_rule_names"/>
+                                    <field name="overtime_hours"/>
+                                    <field name="overtime_rated_hours"/>
+                                    <field name="hourly_wage"/>
+                                    <field name="overtime_amount"/>
+                                    <field name="overtime_rule_names"/>
+                                    <field name="is_public_holiday"/>
+                                    <field name="public_holiday_id"/>
+                                    <field name="is_before_public_holiday"/>
+                                    <field name="is_after_public_holiday"/>
+                                    <field name="absence_day_type"/>
+                                    <field name="absence"/>
+                                    <field name="absence_rated_days"/>
+                                    <field name="absence_deduction_amount"/>
+                                    <field name="absence_rule_names"/>
+                                    <field name="late_deduction_amount"/>
+                                    <field name="deduction_amount"/>
+                                    <field name="extra_amount"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Summary">
+                            <group>
+                                <field name="total_worked_hours" readonly="1"/>
+                                <field name="total_late_minutes" readonly="1"/>
+                                <field name="total_late_hours" readonly="1"/>
+                                <field name="total_overtime_hours" readonly="1"/>
+                                <field name="total_overtime_amount" readonly="1"/>
+                                <field name="total_absence_days" readonly="1"/>
+                                <field name="total_deduction" readonly="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mk_attendance_sheet_batch_form" model="ir.ui.view">
+        <field name="name">mk.attendance.sheet.batch.form</field>
+        <field name="model">mk.attendance.sheet.batch</field>
+        <field name="arch" type="xml">
+            <form string="Generate Attendance Sheets">
+                <group>
+                    <field name="company_id"/>
+                    <field name="department_id"/>
+                    <field name="attendance_policy_id"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="skip_existing"/>
+                </group>
+                <footer>
+                    <button name="action_generate_sheets" type="object" string="Generate Sheets" class="btn-primary"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mk_attendance_sheet_batch" model="ir.actions.act_window">
+        <field name="name">Generate Attendance Sheets</field>
+        <field name="res_model">mk.attendance.sheet.batch</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="menu_mk_attendance_root" model="ir.ui.menu">
+        <field name="name">Attendance Policy</field>
+        <field name="parent_id" ref="hr.menu_hr_root"/>
+        <field name="sequence">10</field>
+    </record>
+
+    <record id="menu_mk_attendance_policy" model="ir.ui.menu">
+        <field name="name">Policies</field>
+        <field name="parent_id" ref="menu_mk_attendance_root"/>
+        <field name="action" ref="action_mk_attendance_policy"/>
+    </record>
+
+    <record id="menu_mk_attendance_sheet" model="ir.ui.menu">
+        <field name="name">Sheets</field>
+        <field name="parent_id" ref="menu_mk_attendance_root"/>
+        <field name="action" ref="action_mk_attendance_sheet"/>
+    </record>
+
+    <record id="menu_mk_attendance_sheet_batch" model="ir.ui.menu">
+        <field name="name">Generate Sheets Batch</field>
+        <field name="parent_id" ref="menu_mk_attendance_root"/>
+        <field name="action" ref="action_mk_attendance_sheet_batch"/>
+        <field name="sequence">30</field>
+    </record>
+</odoo>

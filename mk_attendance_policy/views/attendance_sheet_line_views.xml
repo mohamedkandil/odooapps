@@ -1,0 +1,74 @@
+<odoo>
+    <record id="view_mk_attendance_sheet_line_form" model="ir.ui.view">
+        <field name="name">mk.attendance.sheet.line.form</field>
+        <field name="model">mk.attendance.sheet.line</field>
+        <field name="arch" type="xml">
+            <form string="Attendance Line">
+                <sheet>
+                    <group>
+                        <field name="date"/>
+                        <field name="check_in"/>
+                        <field name="check_out"/>
+                        <field name="worked_hours"/>
+                        <field name="late_minutes"/>
+                        <field name="late_hours"/>
+                        <field name="late_rated_hours"/>
+                        <field name="late_rule_names"/>
+                    </group>
+                    <group>
+                        <field name="overtime_hours"/>
+                        <field name="overtime_rated_hours"/>
+                        <field name="hourly_wage"/>
+                        <field name="overtime_amount"/>
+                        <field name="overtime_rule_names"/>
+                        <field name="is_public_holiday"/>
+                        <field name="public_holiday_id"/>
+                        <field name="is_before_public_holiday"/>
+                        <field name="is_after_public_holiday"/>
+                        <field name="absence_day_type"/>
+                        <field name="absence"/>
+                        <field name="absence_rated_days"/>
+                        <field name="absence_deduction_amount"/>
+                        <field name="absence_rule_names"/>
+                        <field name="late_deduction_amount"/>
+                        <field name="deduction_amount"/>
+                    </group>
+                    <field name="note"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mk_attendance_sheet_line_tree" model="ir.ui.view">
+        <field name="name">mk.attendance.sheet.line.tree</field>
+        <field name="model">mk.attendance.sheet.line</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date"/>
+                <field name="check_in"/>
+                <field name="check_out"/>
+                <field name="worked_hours"/>
+                <field name="late_minutes"/>
+                <field name="late_hours"/>
+                <field name="late_rated_hours"/>
+                <field name="late_rule_names"/>
+                <field name="overtime_hours"/>
+                <field name="overtime_rated_hours"/>
+                <field name="hourly_wage"/>
+                <field name="overtime_amount"/>
+                <field name="overtime_rule_names"/>
+                <field name="is_public_holiday"/>
+                <field name="public_holiday_id"/>
+                <field name="is_before_public_holiday"/>
+                <field name="is_after_public_holiday"/>
+                <field name="absence_day_type"/>
+                <field name="absence"/>
+                <field name="absence_rated_days"/>
+                <field name="absence_deduction_amount"/>
+                <field name="absence_rule_names"/>
+                <field name="late_deduction_amount"/>
+                <field name="deduction_amount"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

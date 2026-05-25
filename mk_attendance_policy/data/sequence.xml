@@ -1,0 +1,8 @@
+<odoo>
+    <record id="seq_attendance_sheet" model="ir.sequence">
+        <field name="name">Attendance Sheet</field>
+        <field name="code">mk.attendance.sheet</field>
+        <field name="prefix">ATT/</field>
+        <field name="padding">5</field>
+    </record>
+</odoo>
