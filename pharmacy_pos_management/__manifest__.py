@@ -45,7 +45,7 @@
         'data/pharmacy_demo.xml',
     ],
     'images': [
-        'static/description/banner.svg',
+        'static/description/banner.png',
     ],
     'installable': True,
     'application': True,
