@@ -1,0 +1,9 @@
+<odoo>
+    <record id="seq_pharmacy_pos_order" model="ir.sequence">
+        <field name="name">Pharmacy POS Order</field>
+        <field name="code">pharmacy.pos.order</field>
+        <field name="prefix">PH/POS/%(year)s/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>

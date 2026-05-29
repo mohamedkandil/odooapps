@@ -1,0 +1,65 @@
+<odoo>
+    <data noupdate="1">
+        <record id="pharmacy_profile_demo" model="pharmacy.profile">
+            <field name="name">Demo Pharmacy</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="license_number">PH-DEMO-001</field>
+            <field name="phone">+20 100 000 0000</field>
+            <field name="email">demo@example.com</field>
+        </record>
+
+        <record id="pharmacy_branch_demo" model="pharmacy.branch">
+            <field name="name">Main Branch</field>
+            <field name="code">MAIN</field>
+            <field name="profile_id" ref="pharmacy_profile_demo"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="pharmacy_product_demo" model="pharmacy.product">
+            <field name="name">Paracetamol 500mg</field>
+            <field name="barcode">1234567890123</field>
+            <field name="sku">PARA500</field>
+            <field name="scientific_name">Paracetamol</field>
+            <field name="trade_name">Panadol</field>
+            <field name="active_ingredient">Paracetamol</field>
+            <field name="manufacturer">GSK</field>
+            <field name="country_of_origin">UK</field>
+            <field name="dosage">500mg</field>
+            <field name="drug_form">Tablet</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="standard_price">10.0</field>
+            <field name="list_price">18.0</field>
+            <field name="is_otc" eval="True"/>
+            <field name="favorite_pos" eval="True"/>
+            <field name="controlled_medicine" eval="False"/>
+        </record>
+
+        <record id="pharmacy_batch_demo" model="pharmacy.batch">
+            <field name="name">PARA500-B001</field>
+            <field name="product_id" ref="pharmacy_product_demo"/>
+            <field name="lot_number">B001</field>
+            <field name="manufacturing_date">2026-01-01</field>
+            <field name="expiry_date">2027-01-01</field>
+            <field name="quantity">100</field>
+            <field name="branch_id" ref="pharmacy_branch_demo"/>
+        </record>
+
+        <record id="pharmacy_inventory_demo" model="pharmacy.inventory">
+            <field name="product_id" ref="pharmacy_product_demo"/>
+            <field name="branch_id" ref="pharmacy_branch_demo"/>
+            <field name="batch_id" ref="pharmacy_batch_demo"/>
+            <field name="quantity">100</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="min_stock">10</field>
+            <field name="reorder_qty">50</field>
+        </record>
+
+        <record id="pharmacy_customer_demo" model="pharmacy.customer">
+            <field name="name">Demo Patient</field>
+            <field name="phone">+20 100 111 2222</field>
+            <field name="email">patient@example.com</field>
+            <field name="allergies">Penicillin</field>
+            <field name="insurance_info">Demo Insurance</field>
+        </record>
+    </data>
+</odoo>

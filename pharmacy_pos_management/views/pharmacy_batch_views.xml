@@ -1,0 +1,53 @@
+<odoo>
+    <record id="view_pharmacy_batch_tree" model="ir.ui.view">
+        <field name="name">pharmacy.batch.tree</field>
+        <field name="model">pharmacy.batch</field>
+        <field name="arch" type="xml">
+            <tree decoration-danger="is_expired" decoration-warning="is_near_expiry">
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="lot_number"/>
+                <field name="expiry_date"/>
+                <field name="days_to_expiry"/>
+                <field name="manufacturing_date"/>
+                <field name="quantity"/>
+                <field name="branch_id"/>
+                <field name="is_expired"/>
+                <field name="is_near_expiry"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_pharmacy_batch_form" model="ir.ui.view">
+        <field name="name">pharmacy.batch.form</field>
+        <field name="model">pharmacy.batch</field>
+        <field name="arch" type="xml">
+            <form string="Pharmacy Batch">
+                <header>
+                    <button name="action_create_expiry_notifications" type="object" string="Create Expiry Alert" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="product_id"/>
+                        <field name="lot_number"/>
+                        <field name="expiry_date"/>
+                        <field name="days_to_expiry"/>
+                        <field name="manufacturing_date"/>
+                        <field name="quantity"/>
+                        <field name="branch_id"/>
+                        <field name="company_id"/>
+                        <field name="is_expired"/>
+                        <field name="is_near_expiry"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_pharmacy_batch" model="ir.actions.act_window">
+        <field name="name">Batches</field>
+        <field name="res_model">pharmacy.batch</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_pharmacy_batch_action" name="Batches" parent="menu_pharmacy_inventory" action="action_pharmacy_batch" sequence="20"/>
+</odoo>

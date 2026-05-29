@@ -1,0 +1,29 @@
+msgid "Pharmacy"
+msgstr "Pharmacy"
+
+msgid "Products"
+msgstr "Products"
+
+msgid "POS"
+msgstr "POS"
+
+msgid "Customers"
+msgstr "Customers"
+
+msgid "Prescriptions"
+msgstr "Prescriptions"
+
+msgid "Batches"
+msgstr "Batches"
+
+msgid "Inventory"
+msgstr "Inventory"
+
+msgid "Purchases"
+msgstr "Purchases"
+
+msgid "Dashboards"
+msgstr "Dashboards"
+
+msgid "Accounting"
+msgstr "Accounting"

@@ -1,0 +1,27 @@
+# Translation of Pharmacy POS Management.
+msgid ""
+msgstr ""
+"Project-Id-Version: pharmacy_pos_management 17.0\n"
+"Language: ar\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Pharmacy"
+msgstr "الصيدلية"
+
+msgid "Branches"
+msgstr "الفروع"
+
+msgid "Products"
+msgstr "المنتجات"
+
+msgid "Inventory"
+msgstr "المخزون"
+
+msgid "Prescriptions"
+msgstr "الوصفات الطبية"
+
+msgid "Customers"
+msgstr "المرضى"
+
+msgid "Cashboxes"
+msgstr "الخزن"

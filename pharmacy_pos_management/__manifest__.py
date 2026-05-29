@@ -1,0 +1,56 @@
+{
+    'name': 'Pharmacy POS Management',
+    'version': '17.0.1.0.0',
+    'summary': 'Enterprise-grade Pharmacy & POS Management System',
+    'description': 'Comprehensive Pharmacy Management & POS System for Odoo 17 with modern UI/UX, Arabic RTL, and high performance.',
+    'author': 'Mohamed Kandil',
+    'website': 'mohamed.kandil@myntrocode.com',
+    'category': 'Pharmacy, POS, Sales, Inventory',
+    'depends': [
+        'base', 'mail', 'contacts', 'product', 'stock', 'purchase', 'account',
+        'point_of_sale', 'uom', 'web', 'barcodes'
+    ],
+    'data': [
+        'security/pharmacy_security.xml',
+        'security/ir.model.access.csv',
+        'data/pharmacy_sequence.xml',
+        'data/pharmacy_cron.xml',
+        'views/pharmacy_menus.xml',
+        'views/pharmacy_branch_views.xml',
+        'views/pharmacy_product_views.xml',
+        'views/pharmacy_batch_views.xml',
+        'views/pharmacy_inventory_views.xml',
+        'views/pharmacy_purchase_views.xml',
+        'views/pharmacy_pos_views.xml',
+        'views/pharmacy_prescription_views.xml',
+        'views/pharmacy_customer_views.xml',
+        'views/pharmacy_accounting_views.xml',
+        'views/pharmacy_dashboard_views.xml',
+        'views/pharmacy_report_views.xml',
+        'views/pharmacy_api_views.xml',
+        'views/pharmacy_settings_views.xml',
+        'reports/pharmacy_reports.xml',
+        'wizard/pharmacy_wizard_views.xml',
+    ],
+    'assets': {
+        'web.assets_backend': [
+            'pharmacy_pos_management/static/src/pos/pharmacy_pos.scss',
+        ],
+        'point_of_sale._assets_pos': [
+            'pharmacy_pos_management/static/src/pos/pharmacy_pos.js',
+            'pharmacy_pos_management/static/src/pos/pharmacy_pos.scss',
+        ],
+    },
+    'demo': [
+        'data/pharmacy_demo.xml',
+    ],
+    'images': [
+        'static/description/banner.svg',
+    ],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+    'price': 300.0,
+    'currency': 'USD',
+    'license': 'OEEL-1',
+}

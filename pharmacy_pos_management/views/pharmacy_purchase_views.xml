@@ -1,0 +1,70 @@
+<odoo>
+    <record id="view_pharmacy_purchase_tree" model="ir.ui.view">
+        <field name="name">pharmacy.purchase.tree</field>
+        <field name="model">pharmacy.purchase</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="branch_id"/>
+                <field name="vendor_id"/>
+                <field name="state"/>
+                <field name="date_order"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_pharmacy_purchase_form" model="ir.ui.view">
+        <field name="name">pharmacy.purchase.form</field>
+        <field name="model">pharmacy.purchase</field>
+        <field name="arch" type="xml">
+            <form string="Pharmacy Purchase">
+                <header>
+                    <button name="action_submit_rfq" type="object" string="Submit RFQ" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_approve" type="object" string="Approve" class="btn-primary" invisible="state != 'rfq'"/>
+                    <button name="action_done" type="object" string="Receive" class="btn-primary" invisible="state != 'approved'"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="state in ('done', 'cancel')"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="branch_id"/>
+                            <field name="company_id"/>
+                            <field name="vendor_id"/>
+                            <field name="date_order"/>
+                        </group>
+                        <group>
+                            <field name="approval_user_id"/>
+                            <field name="invoice_id"/>
+                            <field name="vendor_comparison"/>
+                            <field name="notes"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Order Lines">
+                            <field name="order_line_ids">
+                                <tree editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="quantity"/>
+                                    <field name="price_unit"/>
+                                    <field name="discount"/>
+                                    <field name="tax_ids" widget="many2many_tags"/>
+                                    <field name="subtotal"/>
+                                    <field name="tax_amount"/>
+                                    <field name="total"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_pharmacy_purchase" model="ir.actions.act_window">
+        <field name="name">Purchases</field>
+        <field name="res_model">pharmacy.purchase</field>
+        <field name="view_mode">tree,form,pivot,graph</field>
+    </record>
+    <menuitem id="menu_pharmacy_purchase_action" name="Purchases" parent="menu_pharmacy_purchase" action="action_pharmacy_purchase" sequence="10"/>
+</odoo>

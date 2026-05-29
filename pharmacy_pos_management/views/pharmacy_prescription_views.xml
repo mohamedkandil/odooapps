@@ -1,0 +1,69 @@
+<odoo>
+    <record id="view_pharmacy_prescription_tree" model="ir.ui.view">
+        <field name="name">pharmacy.prescription.tree</field>
+        <field name="model">pharmacy.prescription</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="doctor_name"/>
+                <field name="prescription_date"/>
+                <field name="refill_allowed"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_pharmacy_prescription_form" model="ir.ui.view">
+        <field name="name">pharmacy.prescription.form</field>
+        <field name="model">pharmacy.prescription</field>
+        <field name="arch" type="xml">
+            <form string="Pharmacy Prescription">
+                <header>
+                    <button name="action_validate" type="object" string="Validate" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_expire" type="object" string="Expire" invisible="state == 'expired'"/>
+                    <button name="action_create_refill" type="object" string="Create Refill" invisible="not refill_allowed"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="patient_id"/>
+                            <field name="doctor_name"/>
+                            <field name="doctor_license"/>
+                            <field name="prescription_date"/>
+                            <field name="prescription_file" filename="name"/>
+                            <field name="refill_allowed"/>
+                            <field name="refill_parent_id"/>
+                        </group>
+                        <group>
+                            <field name="ocr_text"/>
+                            <field name="allergy_warning"/>
+                            <field name="interaction_alert"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="POS Orders">
+                            <field name="pos_order_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="total"/>
+                                    <field name="amount_paid"/>
+                                    <field name="state"/>
+                                    <field name="date_order"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_pharmacy_prescription" model="ir.actions.act_window">
+        <field name="name">Prescriptions</field>
+        <field name="res_model">pharmacy.prescription</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_pharmacy_prescription_action" name="Prescriptions" parent="menu_pharmacy_prescription" action="action_pharmacy_prescription" sequence="10"/>
+</odoo>

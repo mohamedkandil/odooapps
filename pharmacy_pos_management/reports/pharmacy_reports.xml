@@ -1,0 +1,41 @@
+<odoo>
+    <template id="report_pharmacy_sales_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="order">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Pharmacy Sales Receipt</h2>
+                        <p><strong>Order:</strong> <span t-field="order.name"/></p>
+                        <p><strong>Branch:</strong> <span t-field="order.branch_id"/></p>
+                        <p><strong>Customer:</strong> <span t-field="order.customer_id"/></p>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Batch</th>
+                                    <th>Expiry</th>
+                                    <th class="text-end">Qty</th>
+                                    <th class="text-end">Price</th>
+                                    <th class="text-end">Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="order.order_line_ids" t-as="line">
+                                    <td><span t-field="line.product_id"/></td>
+                                    <td><span t-field="line.batch_id"/></td>
+                                    <td><span t-field="line.expiry_date"/></td>
+                                    <td class="text-end"><span t-field="line.quantity"/></td>
+                                    <td class="text-end"><span t-field="line.price_unit"/></td>
+                                    <td class="text-end"><span t-field="line.subtotal"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="text-end"><strong>Total:</strong> <span t-field="order.total"/></p>
+                        <p class="text-end"><strong>Paid:</strong> <span t-field="order.amount_paid"/></p>
+                        <p class="text-end"><strong>Due:</strong> <span t-field="order.amount_due"/></p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
