@@ -52,5 +52,5 @@
     'auto_install': False,
     'price': 300.0,
     'currency': 'USD',
-    'license': 'OEEL-1',
+    'license': 'OPL-1',
 }
