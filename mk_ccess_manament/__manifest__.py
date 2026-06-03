@@ -5,7 +5,7 @@
     "category": "Administration",
     "author": "Kandil ERP",
     "license": "LGPL-3",
-    'price': 399.00,
+    'price': 350.00,
     'currency': 'USD',
     "web_icon": "mk_ccess_manament,static/description/icon.png",
     "images": [
