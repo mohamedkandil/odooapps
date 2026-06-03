@@ -1,0 +1,14 @@
+<odoo>
+    <menuitem id="menu_access_management_root"
+              name="Access Studio"
+              sequence="75"
+              web_icon="mk_ccess_manament,static/description/icon.png"
+              groups="base.group_system"/>
+
+    <menuitem id="menu_access_management"
+              name="Access Management"
+              parent="menu_access_management_root"
+              action="action_access_management"
+              sequence="10"
+              groups="base.group_system"/>
+</odoo>

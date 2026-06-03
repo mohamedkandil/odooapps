@@ -1,0 +1,7 @@
+<odoo>
+    <record id="group_access_management_manager" model="res.groups">
+        <field name="name">Access Management Manager</field>
+        <field name="category_id" ref="base.module_category_administration_administration"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_system'))]"/>
+    </record>
+</odoo>

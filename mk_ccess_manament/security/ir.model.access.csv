@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_access_management_admin,access.management admin,model_access_management,base.group_system,1,1,1,1
+access_access_management_model_line_admin,access.management.model.line admin,model_access_management_model_line,base.group_system,1,1,1,1
+access_access_management_field_line_admin,access.management.field.line admin,model_access_management_field_line,base.group_system,1,1,1,1
+access_access_management_domain_line_admin,access.management.domain.line admin,model_access_management_domain_line,base.group_system,1,1,1,1
+access_access_management_button_line_admin,access.management.button.line admin,model_access_management_button_line,base.group_system,1,1,1,1
+access_access_management_filter_line_admin,access.management.filter.line admin,model_access_management_filter_line,base.group_system,1,1,1,1
