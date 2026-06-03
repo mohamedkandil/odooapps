@@ -3,7 +3,7 @@
     "summary": "Manage user interface and model access rules from one screen",
     "version": "17.0.1.0.0",
     "category": "Administration",
-    "author": "Mohhamed Kandil",
+    "author": "Mohamed Kandil",
     "license": "LGPL-3",
     'price': 350.00,
     'currency': 'USD',
