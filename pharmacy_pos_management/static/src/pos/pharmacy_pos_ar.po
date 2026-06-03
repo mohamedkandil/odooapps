@@ -1,0 +1,29 @@
+msgid "Pharmacy"
+msgstr "صيدلية"
+
+msgid "Products"
+msgstr "منتجات"
+
+msgid "POS"
+msgstr "نقطة البيع"
+
+msgid "Customers"
+msgstr "العملاء"
+
+msgid "Prescriptions"
+msgstr "الوصفات الطبية"
+
+msgid "Batches"
+msgstr "دفعات"
+
+msgid "Inventory"
+msgstr "المخزون"
+
+msgid "Purchases"
+msgstr "المشتريات"
+
+msgid "Dashboards"
+msgstr "لوحات المعلومات"
+
+msgid "Accounting"
+msgstr "الحسابات"

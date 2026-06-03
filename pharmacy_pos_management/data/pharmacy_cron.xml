@@ -1,0 +1,22 @@
+<odoo>
+    <record id="ir_cron_pharmacy_expiry_alerts" model="ir.cron">
+        <field name="name">Pharmacy: Expiry Alerts</field>
+        <field name="model_id" ref="model_pharmacy_batch"/>
+        <field name="state">code</field>
+        <field name="code">model.cron_expiry_alerts()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="active">True</field>
+    </record>
+    <record id="ir_cron_pharmacy_min_stock_alerts" model="ir.cron">
+        <field name="name">Pharmacy: Minimum Stock Alerts</field>
+        <field name="model_id" ref="model_pharmacy_inventory"/>
+        <field name="state">code</field>
+        <field name="code">model.cron_min_stock_alerts()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="active">True</field>
+    </record>
+</odoo>

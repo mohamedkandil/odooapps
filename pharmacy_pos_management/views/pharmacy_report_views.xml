@@ -1,0 +1,25 @@
+<odoo>
+    <record id="action_report_pharmacy_sales" model="ir.actions.report">
+        <field name="name">Pharmacy Sales Report</field>
+        <field name="model">pharmacy.pos.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">pharmacy_pos_management.report_pharmacy_sales_document</field>
+        <field name="report_file">pharmacy_pos_management.report_pharmacy_sales_document</field>
+        <field name="binding_model_id" ref="model_pharmacy_pos_order"/>
+        <field name="binding_type">report</field>
+    </record>
+    <record id="action_pharmacy_sales_analysis" model="ir.actions.act_window">
+        <field name="name">Sales Analysis</field>
+        <field name="res_model">pharmacy.pos.order</field>
+        <field name="view_mode">pivot,graph,tree,form</field>
+        <field name="domain">[('state', '=', 'paid')]</field>
+    </record>
+    <record id="action_pharmacy_expiry_report" model="ir.actions.act_window">
+        <field name="name">Near Expiry Products</field>
+        <field name="res_model">pharmacy.batch</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">['|', ('is_near_expiry', '=', True), ('is_expired', '=', True)]</field>
+    </record>
+    <menuitem id="menu_pharmacy_sales_report_action" name="Sales Analysis" parent="menu_pharmacy_reports" action="action_pharmacy_sales_analysis" sequence="10"/>
+    <menuitem id="menu_pharmacy_expiry_report_action" name="Expiry Report" parent="menu_pharmacy_reports" action="action_pharmacy_expiry_report" sequence="20"/>
+</odoo>

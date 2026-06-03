@@ -1,0 +1,117 @@
+<odoo>
+    <record id="view_pharmacy_customer_tree" model="ir.ui.view">
+        <field name="name">pharmacy.customer.tree</field>
+        <field name="model">pharmacy.customer</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="insurance_info"/>
+                <field name="loyalty_points"/>
+                <field name="credit_balance"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_pharmacy_customer_form" model="ir.ui.view">
+        <field name="name">pharmacy.customer.form</field>
+        <field name="model">pharmacy.customer</field>
+        <field name="arch" type="xml">
+            <form string="Pharmacy Customer/Patient">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="partner_id"/>
+                            <field name="phone"/>
+                            <field name="email"/>
+                            <field name="insurance_info"/>
+                            <field name="loyalty_points"/>
+                            <field name="promotion_ids" widget="many2many_tags"/>
+                        </group>
+                        <group>
+                            <field name="credit_limit"/>
+                            <field name="credit_balance"/>
+                            <field name="whatsapp_opt_in"/>
+                            <field name="sms_opt_in"/>
+                            <field name="company_id"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Medical Profile">
+                            <group>
+                                <field name="allergies"/>
+                                <field name="chronic_diseases"/>
+                                <field name="current_medications"/>
+                            </group>
+                        </page>
+                        <page string="Statement">
+                            <field name="statement_line_ids">
+                                <tree editable="bottom">
+                                    <field name="date"/>
+                                    <field name="description"/>
+                                    <field name="debit"/>
+                                    <field name="credit"/>
+                                    <field name="balance"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_pharmacy_customer" model="ir.actions.act_window">
+        <field name="name">Customers</field>
+        <field name="res_model">pharmacy.customer</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_pharmacy_promotion_tree" model="ir.ui.view">
+        <field name="name">pharmacy.promotion.tree</field>
+        <field name="model">pharmacy.promotion</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="discount_percent"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_pharmacy_promotion_form" model="ir.ui.view">
+        <field name="name">pharmacy.promotion.form</field>
+        <field name="model">pharmacy.promotion</field>
+        <field name="arch" type="xml">
+            <form string="Promotion">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="company_id"/>
+                        <field name="branch_ids" widget="many2many_tags"/>
+                        <field name="product_ids" widget="many2many_tags"/>
+                        <field name="discount_percent"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_pharmacy_promotion" model="ir.actions.act_window">
+        <field name="name">Promotions</field>
+        <field name="res_model">pharmacy.promotion</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_pharmacy_customer_action" name="Patients" parent="menu_pharmacy_customer" action="action_pharmacy_customer" sequence="10"/>
+    <menuitem id="menu_pharmacy_promotion_action" name="Promotions" parent="menu_pharmacy_customer" action="action_pharmacy_promotion" sequence="20"/>
+</odoo>

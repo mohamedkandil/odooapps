@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180" role="img" aria-label="MK Pharmacy icon">
+  <defs>
+    <linearGradient id="mkBg" x1="0" y1="0" x2="180" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f8f85"/>
+      <stop offset="1" stop-color="#0b6f69"/>
+    </linearGradient>
+  </defs>
+  <rect width="180" height="180" rx="4" fill="url(#mkBg)"/>
+  <text x="90" y="66" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="45" font-weight="800" fill="#ffffff">MK</text>
+  <text x="90" y="97" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="800" fill="#ffffff">PHARMACY</text>
+  <g fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M58 125c0-12 10-22 32-22s32 10 32 22-10 22-32 22-32-10-32-22z"/>
+    <path d="M70 125h40"/>
+  </g>
+  <circle cx="58" cy="101" r="7" fill="#22c55e"/>
+</svg>

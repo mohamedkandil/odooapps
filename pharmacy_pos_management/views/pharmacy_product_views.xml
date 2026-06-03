@@ -1,0 +1,88 @@
+<odoo>
+    <record id="view_pharmacy_product_tree" model="ir.ui.view">
+        <field name="name">pharmacy.product.tree</field>
+        <field name="model">pharmacy.product</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="barcode"/>
+                <field name="sku"/>
+                <field name="scientific_name"/>
+                <field name="trade_name"/>
+                <field name="manufacturer"/>
+                <field name="uom_id"/>
+                <field name="available_qty"/>
+                <field name="list_price"/>
+                <field name="controlled_medicine"/>
+                <field name="prescription_required"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_pharmacy_product_form" model="ir.ui.view">
+        <field name="name">pharmacy.product.form</field>
+        <field name="model">pharmacy.product</field>
+        <field name="arch" type="xml">
+            <form string="Pharmacy Product">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="barcode"/>
+                            <field name="qr_code"/>
+                            <field name="sku"/>
+                            <field name="scientific_name"/>
+                            <field name="trade_name"/>
+                            <field name="active_ingredient"/>
+                            <field name="manufacturer"/>
+                            <field name="country_of_origin"/>
+                            <field name="dosage"/>
+                            <field name="drug_form"/>
+                        </group>
+                        <group>
+                            <field name="company_id"/>
+                            <field name="product_tmpl_id"/>
+                            <field name="uom_id"/>
+                            <field name="standard_price"/>
+                            <field name="list_price"/>
+                            <field name="available_qty"/>
+                            <field name="product_image" widget="image"/>
+                            <field name="pdf_attachment" widget="many2many_binary"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Classification">
+                            <group>
+                                <field name="is_otc"/>
+                                <field name="is_cosmetic"/>
+                                <field name="is_device"/>
+                                <field name="is_supplement"/>
+                                <field name="is_baby_product"/>
+                                <field name="controlled_medicine"/>
+                                <field name="prescription_required"/>
+                                <field name="favorite_pos"/>
+                            </group>
+                        </page>
+                        <page string="Clinical">
+                            <group>
+                                <field name="alternative_ids" widget="many2many_tags"/>
+                                <field name="drug_interaction_warning"/>
+                            </group>
+                        </page>
+                        <page string="Batches">
+                            <field name="batch_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_pharmacy_product" model="ir.actions.act_window">
+        <field name="name">Products</field>
+        <field name="res_model">pharmacy.product</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_pharmacy_product_action" name="Products" parent="menu_pharmacy_product" action="action_pharmacy_product" sequence="10"/>
+</odoo>

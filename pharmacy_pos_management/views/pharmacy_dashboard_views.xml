@@ -1,0 +1,79 @@
+<odoo>
+    <record id="view_pharmacy_dashboard_tree" model="ir.ui.view">
+        <field name="name">pharmacy.dashboard.tree</field>
+        <field name="model">pharmacy.dashboard</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="dashboard_type"/>
+                <field name="branch_id"/>
+                <field name="company_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_pharmacy_dashboard_form" model="ir.ui.view">
+        <field name="name">pharmacy.dashboard.form</field>
+        <field name="model">pharmacy.dashboard</field>
+        <field name="arch" type="xml">
+            <form string="Pharmacy Dashboard">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="dashboard_type"/>
+                        <field name="company_id"/>
+                        <field name="branch_id"/>
+                        <field name="data" widget="json"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_pharmacy_dashboard" model="ir.actions.act_window">
+        <field name="name">Dashboards</field>
+        <field name="res_model">pharmacy.dashboard</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_pharmacy_notification_log_tree" model="ir.ui.view">
+        <field name="name">pharmacy.notification.log.tree</field>
+        <field name="model">pharmacy.notification.log</field>
+        <field name="arch" type="xml">
+            <tree decoration-danger="state == 'failed'" decoration-info="state == 'pending'">
+                <field name="create_date"/>
+                <field name="name"/>
+                <field name="notification_type"/>
+                <field name="branch_id"/>
+                <field name="product_id"/>
+                <field name="batch_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_pharmacy_notification_log_form" model="ir.ui.view">
+        <field name="name">pharmacy.notification.log.form</field>
+        <field name="model">pharmacy.notification.log</field>
+        <field name="arch" type="xml">
+            <form string="Notification Log">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="notification_type"/>
+                        <field name="branch_id"/>
+                        <field name="product_id"/>
+                        <field name="batch_id"/>
+                        <field name="state"/>
+                        <field name="message"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_pharmacy_notification_log" model="ir.actions.act_window">
+        <field name="name">Notifications</field>
+        <field name="res_model">pharmacy.notification.log</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_pharmacy_dashboard_action" name="Dashboards" parent="menu_pharmacy_dashboard" action="action_pharmacy_dashboard" sequence="10"/>
+    <menuitem id="menu_pharmacy_notifications_action" name="Notifications" parent="menu_pharmacy_dashboard" action="action_pharmacy_notification_log" sequence="20"/>
+</odoo>

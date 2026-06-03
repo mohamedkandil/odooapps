@@ -1,0 +1,26 @@
+<odoo>
+    <record id="view_pharmacy_expiry_alert_wizard_form" model="ir.ui.view">
+        <field name="name">pharmacy.expiry.alert.wizard.form</field>
+        <field name="model">pharmacy.expiry.alert.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create Expiry Alerts">
+                <group>
+                    <field name="branch_id"/>
+                    <field name="days"/>
+                    <field name="include_expired"/>
+                </group>
+                <footer>
+                    <button name="action_create_alerts" type="object" string="Create Alerts" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_pharmacy_expiry_alert_wizard" model="ir.actions.act_window">
+        <field name="name">Create Expiry Alerts</field>
+        <field name="res_model">pharmacy.expiry.alert.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem id="menu_pharmacy_expiry_alert_wizard_action" name="Create Expiry Alerts" parent="menu_pharmacy_reports" action="action_pharmacy_expiry_alert_wizard" sequence="30"/>
+</odoo>

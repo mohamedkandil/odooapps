@@ -1,0 +1,152 @@
+<odoo>
+    <record id="view_pharmacy_profile_tree" model="ir.ui.view">
+        <field name="name">pharmacy.profile.tree</field>
+        <field name="model">pharmacy.profile</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="license_number"/>
+                <field name="responsible_pharmacist_id"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_pharmacy_profile_form" model="ir.ui.view">
+        <field name="name">pharmacy.profile.form</field>
+        <field name="model">pharmacy.profile</field>
+        <field name="arch" type="xml">
+            <form string="Pharmacy Profile">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="company_id"/>
+                        <field name="license_number"/>
+                        <field name="responsible_pharmacist_id"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="website"/>
+                        <field name="address"/>
+                        <field name="active"/>
+                    </group>
+                    <notebook>
+                        <page string="Branches">
+                            <field name="branch_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_pharmacy_profile" model="ir.actions.act_window">
+        <field name="name">Pharmacy Profiles</field>
+        <field name="res_model">pharmacy.profile</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_pharmacy_branch_tree" model="ir.ui.view">
+        <field name="name">pharmacy.branch.tree</field>
+        <field name="model">pharmacy.branch</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="profile_id"/>
+                <field name="company_id"/>
+                <field name="warehouse_id"/>
+                <field name="manager_id"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_pharmacy_branch_form" model="ir.ui.view">
+        <field name="name">pharmacy.branch.form</field>
+        <field name="model">pharmacy.branch</field>
+        <field name="arch" type="xml">
+            <form string="Pharmacy Branch">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="profile_id"/>
+                            <field name="company_id"/>
+                            <field name="warehouse_id"/>
+                            <field name="manager_id"/>
+                        </group>
+                        <group>
+                            <field name="phone"/>
+                            <field name="address"/>
+                            <field name="user_ids" widget="many2many_tags"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Cashboxes">
+                            <field name="cashbox_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="journal_id"/>
+                                    <field name="opening_balance"/>
+                                    <field name="current_balance"/>
+                                    <field name="active"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_pharmacy_branch" model="ir.actions.act_window">
+        <field name="name">Branches</field>
+        <field name="res_model">pharmacy.branch</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_pharmacy_cashbox_tree" model="ir.ui.view">
+        <field name="name">pharmacy.cashbox.tree</field>
+        <field name="model">pharmacy.cashbox</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="branch_id"/>
+                <field name="journal_id"/>
+                <field name="current_balance"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_pharmacy_cashbox_form" model="ir.ui.view">
+        <field name="name">pharmacy.cashbox.form</field>
+        <field name="model">pharmacy.cashbox</field>
+        <field name="arch" type="xml">
+            <form string="Branch Cashbox">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="branch_id"/>
+                        <field name="company_id"/>
+                        <field name="journal_id"/>
+                        <field name="cashier_ids" widget="many2many_tags"/>
+                        <field name="opening_balance"/>
+                        <field name="current_balance"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_pharmacy_cashbox" model="ir.actions.act_window">
+        <field name="name">Cashboxes</field>
+        <field name="res_model">pharmacy.cashbox</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_pharmacy_profile_action" name="Profiles" parent="menu_pharmacy_configuration" action="action_pharmacy_profile" sequence="10"/>
+    <menuitem id="menu_pharmacy_branch_action" name="Branches" parent="menu_pharmacy_branch" action="action_pharmacy_branch" sequence="10"/>
+    <menuitem id="menu_pharmacy_cashbox_action" name="Cashboxes" parent="menu_pharmacy_branch" action="action_pharmacy_cashbox" sequence="20"/>
+</odoo>

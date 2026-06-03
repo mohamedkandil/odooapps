@@ -1,0 +1,14 @@
+<odoo>
+    <menuitem id="menu_pharmacy_root" name="Pharmacy" sequence="10"/>
+    <menuitem id="menu_pharmacy_configuration" name="Configuration" parent="menu_pharmacy_root" sequence="10"/>
+    <menuitem id="menu_pharmacy_branch" name="Branches" parent="menu_pharmacy_root" sequence="20"/>
+    <menuitem id="menu_pharmacy_product" name="Products" parent="menu_pharmacy_root" sequence="30"/>
+    <menuitem id="menu_pharmacy_inventory" name="Inventory" parent="menu_pharmacy_root" sequence="40"/>
+    <menuitem id="menu_pharmacy_pos" name="POS" parent="menu_pharmacy_root" sequence="50"/>
+    <menuitem id="menu_pharmacy_purchase" name="Purchases" parent="menu_pharmacy_root" sequence="60"/>
+    <menuitem id="menu_pharmacy_prescription" name="Prescriptions" parent="menu_pharmacy_root" sequence="70"/>
+    <menuitem id="menu_pharmacy_customer" name="Customers" parent="menu_pharmacy_root" sequence="80"/>
+    <menuitem id="menu_pharmacy_dashboard" name="Dashboards" parent="menu_pharmacy_root" sequence="90"/>
+    <menuitem id="menu_pharmacy_reports" name="Reports" parent="menu_pharmacy_root" sequence="100"/>
+    <menuitem id="menu_pharmacy_integrations" name="Integrations" parent="menu_pharmacy_root" sequence="110"/>
+</odoo>
